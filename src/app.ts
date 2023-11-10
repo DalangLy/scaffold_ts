@@ -1,4 +1,4 @@
-import express, {Application} from "express";
+import express, {Application,} from "express";
 import * as http from "http";
 import morgan from "morgan";
 import * as path from "path";
@@ -28,12 +28,12 @@ app.use(nodeSassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', (req, res) => {
+app.use('/', (req: any, res: any) => {
     res.render('index', { title: 'Express' });
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function(req: any, res: any, next: any) {
     next(createHttpError(404));
 });
 

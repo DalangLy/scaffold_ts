@@ -109,3 +109,5 @@ build
 .idea
 /tests/index.test.js
 /tests/index.test.js.map
+/build.js
+/build.js.map
