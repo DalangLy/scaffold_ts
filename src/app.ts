@@ -8,6 +8,8 @@ import createHttpError from "http-errors";
 import debug from "debug";
 import helmet from "helmet";
 import compression from "compression";
+import {useExpressServer} from "routing-controllers";
+import {UserController} from "./user.controller";
 
 const app: Application = express();
 // view engine setup
@@ -27,10 +29,17 @@ app.use(nodeSassMiddleware({
     sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', (req: any, res: any) => {
-    res.render('index', { title: 'Express' });
-});
+useExpressServer(
+    app,
+    {
+        controllers: [
+            UserController,
+        ],
+    }
+)
+// app.use('/', (req: any, res: any) => {
+//     res.render('index', { title: 'Express' });
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req: any, res: any, next: any) {
