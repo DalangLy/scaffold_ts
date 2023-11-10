@@ -35,6 +35,7 @@ useExpressServer(
         controllers: [
             UserController,
         ],
+        defaultErrorHandler: true,
     }
 )
 // app.use('/', (req: any, res: any) => {
@@ -42,9 +43,9 @@ useExpressServer(
 // });
 
 // catch 404 and forward to error handler
-app.use(function(req: any, res: any, next: any) {
-    next(createHttpError(404));
-});
+// app.use(function(req: any, res: any, next: any) {
+//     next(createHttpError(404));
+// });
 
 // error handler
 app.use(function(err: any, req: any, res: any, next: any) {

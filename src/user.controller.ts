@@ -5,7 +5,7 @@ import {Controller, Param, Body, Get, Post, Put, Delete, Render} from 'routing-c
 export class UserController {
     @Get('/')
     @Render('index')
-    getAll() {
+    index() {
         return {
             title: 'Express'
         };
